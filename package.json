@@ -1,0 +1,36 @@
+{
+  "name": "eslint-plugin-pabigot",
+  "version": "0.0.0",
+  "description": "pabigot's ESLint customizations",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "homepage": "https://github.com/pabigot/eslint-plugin-pabigot",
+  "bugs": "https://github.com/pabigot/eslint-plugin-pabigot/issues",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/pabigot/eslint-plugin-pabigot.git"
+  },
+  "author": "Peter A. Bigot <pab@pabigot.com>",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "istanbul cover _mocha -- --recursive",
+    "eslint": "eslint index.js rules/ test/",
+    "test": "mocha --recursive"
+   },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.11",
+    "eslint": "^3.0.0",
+    "eslint-config-google": "^0.6.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^2.5.3"
+   },
+  "engines": {
+    "node": ">=0.12"
+  },
+  "license": "MIT"
+}
