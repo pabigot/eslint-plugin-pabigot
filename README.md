@@ -1,10 +1,14 @@
 # eslint-plugin-pabigot
 
-A holder for rules and other `ESLint` extensions.
+[![NPM version](https://img.shields.io/npm/v/eslint-plugin-pabigot.svg)](https://www.npmjs.com/package/eslint-plugin-pabigot "View this project on NPM")
+[![Build Status](https://travis-ci.org/pabigot/eslint-plugin-pabigot.svg?branch=master)](https://travis-ci.org/pabigot/eslint-plugin-pabigot "Check build status on TravisCI")
+[![Coverage Status](https://coveralls.io/repos/pabigot/eslint-plugin-pabigot/badge.svg?branch=master&service=github)](https://coveralls.io/github/pabigot/eslint-plugin-pabigot?branch=master "Check coverage status on Coveralls")
+
+A holder for rules and other [ESLint][] extensions that suit my needs.
 
 ## Installation
 
-You'll first need to install [ESLint](http://eslint.org):
+You'll first need to install [ESLint][]:
 
 ```
 $ npm i eslint --save-dev
@@ -49,3 +53,5 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 * [affixed-ids](docs/rules/affixed-ids.md) - check identifier style conformance
+
+[ESLint]: http://eslint.org

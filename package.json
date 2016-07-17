@@ -17,10 +17,12 @@
   "main": "index.js",
   "scripts": {
     "coverage": "istanbul cover _mocha -- --recursive",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- --recursive && cat ./coverage/lcov.info | coveralls",
     "eslint": "eslint index.js rules/ test/",
     "test": "mocha --recursive"
    },
-  "dependencies": {
+  "peerDependencies": {
+    "eslint": ">=1.0.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.11",
