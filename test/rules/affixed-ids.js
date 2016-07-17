@@ -197,6 +197,6 @@ ruleTester.run('affixed-ids', rule, {
     {code: 'id_ = 3;',
      options: [{stripSuffixUnderscores: false}],
      errors: [{message: "Identifier 'id_' does not conform.",
-               type: 'Identifier'}]},
+               type: 'Identifier'}]}
   ]
 });

@@ -20,20 +20,20 @@ module.exports = {
             enum: ['camelcase']
           },
           RegExp: {
-            type: "object",
-            required: ["regex"],
+            type: 'object',
+            required: ['regex'],
             additionalProperties: false,
             properties: {
               regex: {
-                type: "object",
-                required: ["pattern"],
+                type: 'object',
+                required: ['pattern'],
                 additionalProperties: false,
                 properties: {
                   pattern: {
-                    type: "string"
+                    type: 'string'
                   },
                   flags: {
-                    type: "string"
+                    type: 'string'
                   }
                 }
               }
@@ -47,13 +47,13 @@ module.exports = {
           },
           StringOrRegExp: {
             oneOf: [
-              {type: "string"},
-              {$ref: "#/definitions/RegExp"}
+              {type: 'string'},
+              {$ref: '#/definitions/RegExp'}
             ]
           },
           ArrayOfStringOrRegExp: {
-            type: "array",
-            items: {$ref: "#/definitions/StringOrRegExp"}
+            type: 'array',
+            items: {$ref: '#/definitions/StringOrRegExp'}
           }
         },
         properties: {
@@ -120,7 +120,7 @@ module.exports = {
       baseRegExp = new RegExp(baseStyle.regex.pattern, baseStyle.regex.flags || '');
       passBaseStyle = function(id) {
         return baseRegExp.test(id);
-      }
+      };
     }
 
     var matchPrefixUnderscoresRegExp = /^_+/;
