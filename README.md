@@ -48,4 +48,4 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-* Fill in provided rules here
+* [affixed-ids](docs/rules/affixed-ids.md) - check identifier style conformance
