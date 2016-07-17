@@ -38,10 +38,10 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "pabigot/affixed-ids": {
+    "pabigot/affixed-ids": ['error', {
       "base": "camelcase",
       "allowedSuffixes": ["_ms"]
-    }
+    }]
   }
 }
 ```

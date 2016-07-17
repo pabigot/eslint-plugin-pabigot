@@ -20,8 +20,8 @@ If left unspecified `camelcase` will be used.
 ### ignoreCalls
 
 This boolean option specifies whether identifier style applies to
-function calls.  For conformance with ESLint `camelcase` it defaults to
-`true`.
+function calls.  For conformance with ESLint `camelcase` (where it is
+unconditional) it defaults to `true`.
 
 ### ignoreProperties
 
@@ -34,7 +34,7 @@ properties, essentially the same as the `properties` option of
 This boolean option specifies whether identifier style applies to object
 properties that are being read (e.g. provided by an external package
 with different identifier conventions).  For conformance with ESLint
-(where it is unconditional) the default value is `true`.
+`camelcase` (where it is unconditional) the default value is `true`.
 
 ### ignoredIdentifiers
 
@@ -48,15 +48,15 @@ style.  The default is an empty array.
 
 This boolean option specifies whether underscore characters that appear
 at the start of the identifier are stripped before style checking.  For
-conformance with ESLint (where it is unconditional) the default value is
-`true`.
+conformance with ESLint `camelcase` (where it is unconditional) the
+default value is `true`.
 
 ### stripSuffixUnderscores
 
 This boolean option specifies whether underscore characters that appear
 at the end of the identifier are stripped before style checking.  For
-conformance with ESLint (where it is unconditional) the default value is
-`true`.
+conformance with ESLint `camelcase` (where it is unconditional) the
+default value is `true`.
 
 ### allowedPrefixes
 
