@@ -21,8 +21,7 @@ semantic metadata (as in [apps Hungarian
 notation](https://en.wikipedia.org/wiki/Hungarian_notation#Systems_vs._Apps_Hungarian).
 
 Such is the case with [ESLint][].  The `affixed-ids` rule addresses the
-need discussed in [ESLint issue
-#6524](https://github.com/eslint/eslint/issues/6524), to wit a
+need discussed in [ESLint issue 6524](https://github.com/eslint/eslint/issues/6524), to wit a
 requirement that variables and properties holding measurements identify
 in their name the physical unit of the measurement.
 
