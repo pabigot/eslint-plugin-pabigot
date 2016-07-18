@@ -81,7 +81,18 @@ ruleTester.run('affixed-ids', rule, {
     {code: 'id = 3;',
      options: [{stripPrefixUnderscores: false, stripSuffixUnderscores: false}]},
     {code: '_ = 3;',
-     options: [{stripPrefixUnderscores: false, stripSuffixUnderscores: false}]}
+     options: [{stripPrefixUnderscores: false, stripSuffixUnderscores: false}]},
+
+    /* Examples */
+    {code: 'function test(param, param_opt, var_args) { }',
+     options: [{baseStyle: 'camelcase',
+                allowedSuffixes: ['_opt'],
+                ignoredIdentifiers: ['var_args']}]},
+    {code: 'rate_kHz = 1000 / interval_us;',
+     options: [{allowedSuffixes: [
+       {regex: {pattern: '_[mu]?s'}},
+       {regex: {pattern: '_[dc]?Cel'}},
+       {regex: {pattern: '_[kMG]?Hz'}}]}]}
   ],
   invalid: [
     /* Base style */
@@ -197,6 +208,18 @@ ruleTester.run('affixed-ids', rule, {
     {code: 'id_ = 3;',
      options: [{stripSuffixUnderscores: false}],
      errors: [{message: "Identifier 'id_' does not conform.",
+               type: 'Identifier'}]},
+
+    /* Examples */
+    {code: 'function test(param, param_opt, var_args) { }',
+     errors: [{message: "Identifier 'param_opt' does not conform.",
+               type: 'Identifier'},
+             {message: "Identifier 'var_args' does not conform.",
+               type: 'Identifier'}]},
+    {code: 'rate_kHz = 1000 / interval_us;',
+     errors: [{message: "Identifier 'rate_kHz' does not conform.",
+               type: 'Identifier'},
+              {message: "Identifier 'interval_us' does not conform.",
                type: 'Identifier'}]}
   ]
 });
