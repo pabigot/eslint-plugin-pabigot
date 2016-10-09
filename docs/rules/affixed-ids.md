@@ -18,7 +18,7 @@ components.
 Well and good, but these rules often disallow extending the use of the
 non-alphanumeric character to separate the identifier from restricted
 semantic metadata (as in [apps Hungarian
-notation](https://en.wikipedia.org/wiki/Hungarian_notation#Systems_vs._Apps_Hungarian).
+notation](https://en.wikipedia.org/wiki/Hungarian_notation#Systems_vs._Apps_Hungarian)).
 
 Such is the case with [ESLint][].  The `affixed-ids` rule addresses the
 need discussed in [ESLint issue 6524](https://github.com/eslint/eslint/issues/6524), to wit a
