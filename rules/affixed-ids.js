@@ -12,79 +12,77 @@ module.exports = {
       category: 'Stylistic Issues',
       recommended: false
     },
-    schema: [
-      {
-        type: 'object',
-        definitions: {
-          BaseStyle: {
-            enum: ['camelcase']
-          },
-          RegExp: {
-            type: 'object',
-            required: ['regex'],
-            additionalProperties: false,
-            properties: {
-              regex: {
-                type: 'object',
-                required: ['pattern'],
-                additionalProperties: false,
-                properties: {
-                  pattern: {
-                    type: 'string'
-                  },
-                  flags: {
-                    type: 'string'
-                  }
+    schema: {
+      type: 'array',
+      definitions: {
+        BaseStyle: {
+          enum: ['camelcase']
+        },
+        RegExp: {
+          type: 'object',
+          required: ['regex'],
+          additionalProperties: false,
+          properties: {
+            regex: {
+              type: 'object',
+              required: ['pattern'],
+              additionalProperties: false,
+              properties: {
+                pattern: {
+                  type: 'string'
+                },
+                flags: {
+                  type: 'string'
                 }
               }
             }
-          },
-          BaseStyleOrRegExp: {
-            oneOf: [
-              {$ref: '#/definitions/BaseStyle'},
-              {$ref: '#/definitions/RegExp'}
-            ]
-          },
-          StringOrRegExp: {
-            oneOf: [
-              {type: 'string'},
-              {$ref: '#/definitions/RegExp'}
-            ]
-          },
-          ArrayOfStringOrRegExp: {
-            type: 'array',
-            items: {$ref: '#/definitions/StringOrRegExp'}
           }
         },
-        properties: {
-          baseStyle: {$ref: '#/definitions/BaseStyleOrRegExp'},
-          ignoreCalls: {
-            type: 'boolean',
-            default: true
-          },
-          ignoreProperties: {
-            type: 'boolean',
-            default: false
-          },
-          ignoreReadProperties: {
-            type: 'boolean',
-            default: true
-          },
-          ignoredIdentifiers: {$ref: '#/definitions/ArrayOfStringOrRegExp'},
-          stripPrefixUnderscores: {
-            type: 'boolean',
-            default: true
-          },
-          stripSuffixUnderscores: {
-            type: 'boolean',
-            default: true
-          },
-          allowedPrefixes: {$ref: '#/definitions/ArrayOfStringOrRegExp'},
-          allowedSuffixes: {$ref: '#/definitions/ArrayOfStringOrRegExp'}
+        BaseStyleOrRegExp: {
+          oneOf: [
+            {$ref: '#/definitions/BaseStyle'},
+            {$ref: '#/definitions/RegExp'}
+          ]
         },
-        additionalProperties: false
-      }
-    ]
+        StringOrRegExp: {
+          oneOf: [
+            {type: 'string'},
+            {$ref: '#/definitions/RegExp'}
+          ]
+        },
+        ArrayOfStringOrRegExp: {
+          type: 'array',
+          items: {$ref: '#/definitions/StringOrRegExp'}
+        }
+      },
+      properties: {
+        baseStyle: {$ref: '#/definitions/BaseStyleOrRegExp'},
+        ignoreCalls: {
+          type: 'boolean',
+          default: true
+        },
+        ignoreProperties: {
+          type: 'boolean',
+          default: false
+        },
+        ignoreReadProperties: {
+          type: 'boolean',
+          default: true
+        },
+        ignoredIdentifiers: {$ref: '#/definitions/ArrayOfStringOrRegExp'},
+        stripPrefixUnderscores: {
+          type: 'boolean',
+          default: true
+        },
+        stripSuffixUnderscores: {
+          type: 'boolean',
+          default: true
+        },
+        allowedPrefixes: {$ref: '#/definitions/ArrayOfStringOrRegExp'},
+        allowedSuffixes: {$ref: '#/definitions/ArrayOfStringOrRegExp'}
+      },
+      additionalProperties: false
+    }
   },
   create: function(context) {
     function convertArrayOfStringOrRegExp(iv) {
