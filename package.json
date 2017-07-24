@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-pabigot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "pabigot's ESLint customizations",
   "keywords": [
     "eslint",
@@ -25,11 +25,11 @@
     "eslint": ">=1.0.0"
   },
   "devDependencies": {
-    "coveralls": "^2.11.14",
-    "eslint": "^3.7.1",
-    "eslint-config-google": "^0.6.0",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.3.0",
+    "eslint-config-google": "^0.9.1",
     "istanbul": "^0.4.5",
-    "mocha": "^3.1.0"
+    "mocha": "^3.4.2"
    },
   "engines": {
     "node": ">=0.12"
