@@ -86,7 +86,7 @@ module.exports = {
   },
   create: function(context) {
     function convertArrayOfStringOrRegExp(iv) {
-      var rv;
+      let rv;
 
       if (Array.isArray(iv)) {
         rv = iv.map(function(elt) {
@@ -106,14 +106,14 @@ module.exports = {
       return (id.toUpperCase() === id);
     }
 
-    var options = context.options[0] || {};
+    const options = context.options[0] || {};
 
-    var baseStyle = options.baseStyle;
-    var baseRegExp;
+    let baseStyle = options.baseStyle;
+    let baseRegExp;
     if (undefined === baseStyle) {
       baseStyle = 'camelcase';
     }
-    var passBaseStyle = passCamelCase;
+    let passBaseStyle = passCamelCase;
     if ('camelcase' !== baseStyle) {
       baseRegExp = new RegExp(baseStyle.regex.pattern, baseStyle.regex.flags || '');
       passBaseStyle = function(id) {
@@ -121,39 +121,39 @@ module.exports = {
       };
     }
 
-    var matchPrefixUnderscoresRegExp = /^_+/;
-    var stripPrefixUnderscores = options.stripPrefixUnderscores;
+    const matchPrefixUnderscoresRegExp = /^_+/;
+    let stripPrefixUnderscores = options.stripPrefixUnderscores;
     if (undefined === stripPrefixUnderscores) {
       stripPrefixUnderscores = true;
     }
 
-    var matchSuffixUnderscoresRegExp = /_+$/;
-    var stripSuffixUnderscores = options.stripSuffixUnderscores;
+    const matchSuffixUnderscoresRegExp = /_+$/;
+    let stripSuffixUnderscores = options.stripSuffixUnderscores;
     if (undefined === stripSuffixUnderscores) {
       stripSuffixUnderscores = true;
     }
 
-    var ignoreCalls = options.ignoreCalls;
+    let ignoreCalls = options.ignoreCalls;
     if (undefined === ignoreCalls) {
       ignoreCalls = true;
     }
 
-    var ignoreProperties = options.ignoreProperties;
+    let ignoreProperties = options.ignoreProperties;
     if (undefined === ignoreProperties) {
       ignoreProperties = false;
     }
 
-    var ignoreReadProperties = options.ignoreReadProperties;
+    let ignoreReadProperties = options.ignoreReadProperties;
     if (undefined === ignoreReadProperties) {
       ignoreReadProperties = true;
     }
 
-    var ignoredIdentifiers = convertArrayOfStringOrRegExp(options.ignoredIdentifiers);
+    const ignoredIdentifiers = convertArrayOfStringOrRegExp(options.ignoredIdentifiers);
     function isIgnoredIdentifier(id) {
-      var i;
-      var len = ignoredIdentifiers.length;
-      var ignore = false;
-      var exception;
+      let i;
+      const len = ignoredIdentifiers.length;
+      let ignore = false;
+      let exception;
 
       for (i = 0; (i < len) && !ignore; ++i) {
         exception = ignoredIdentifiers[i];
@@ -166,9 +166,9 @@ module.exports = {
       return ignore;
     }
 
-    var allowedPrefixes = convertArrayOfStringOrRegExp(options.allowedPrefixes);
+    const allowedPrefixes = convertArrayOfStringOrRegExp(options.allowedPrefixes);
     function startAfterStringPrefix(value, prefix) {
-      var start = prefix.length;
+      const start = prefix.length;
 
       if (start >= value.length) {
         return -1;
@@ -179,7 +179,7 @@ module.exports = {
       return start;
     }
     function startAfterRegExpPrefix(value, prefix) {
-      var match = prefix.exec(value);
+      const match = prefix.exec(value);
 
       if (!match) {
         return -1;
@@ -190,12 +190,12 @@ module.exports = {
       return match[0].length;
     }
     function removePrefix(value) {
-      var i;
-      var len = allowedPrefixes.length;
+      let i;
+      const len = allowedPrefixes.length;
 
       for (i = 0; i < len; ++i) {
-        var prefix = allowedPrefixes[i];
-        var start;
+        const prefix = allowedPrefixes[i];
+        let start;
 
         if ('string' === typeof prefix) {
           start = startAfterStringPrefix(value, prefix);
@@ -210,9 +210,9 @@ module.exports = {
       return value;
     }
 
-    var allowedSuffixes = convertArrayOfStringOrRegExp(options.allowedSuffixes);
+    const allowedSuffixes = convertArrayOfStringOrRegExp(options.allowedSuffixes);
     function endBeforeStringSuffix(value, suffix) {
-      var ends = value.length - suffix.length;
+      const ends = value.length - suffix.length;
       if (0 >= ends) {
         return -1;
       }
@@ -222,23 +222,23 @@ module.exports = {
       return ends;
     }
     function endBeforeRegExpSuffix(value, suffix) {
-      var match = suffix.exec(value);
+      const match = suffix.exec(value);
       if (!match) {
         return -1;
       }
 
-      var ends = match.index;
+      const ends = match.index;
       if ((ends + match[0].length) !== value.length) {
         return -1;
       }
       return ends;
     }
     function removeSuffix(value) {
-      var i;
-      var len = allowedSuffixes.length;
+      let i;
+      const len = allowedSuffixes.length;
       for (i = 0; i < len; ++i) {
-        var suffix = allowedSuffixes[i];
-        var ends;
+        const suffix = allowedSuffixes[i];
+        let ends;
 
         if ('string' === typeof suffix) {
           ends = endBeforeStringSuffix(value, suffix);
@@ -271,7 +271,7 @@ module.exports = {
 
     return {
       Identifier: function(node) {
-        var id = node.name;
+        let id = node.name;
 
         // Ignore any identifiers that are specifically excluded.
         if (ignoredIdentifiers && isIgnoredIdentifier(id)) {
@@ -289,7 +289,7 @@ module.exports = {
         // Doesn't match.  Look at its context to see whether
         // diagnostics are inhibited.  The logic here is about the
         // same as ESLint's camelcase but maybe a bit more precise.
-        var parent = node.parent;
+        const parent = node.parent;
         do {
           if ('MemberExpression' === parent.type) {
             // Always report a non-conforming object identifier

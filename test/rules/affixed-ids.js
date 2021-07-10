@@ -4,10 +4,10 @@
 
 'use strict';
 
-var rule = require('../../rules/affixed-ids');
-var RuleTester = require('eslint').RuleTester;
+const rule = require('../../rules/affixed-ids');
+const RuleTester = require('eslint').RuleTester;
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 
 ruleTester.run('affixed-ids', rule, {
   valid: [
