@@ -10,13 +10,13 @@ module.exports = {
     docs: {
       description: 'Enforce ID style excluding affixes',
       category: 'Stylistic Issues',
-      recommended: false
+      recommended: false,
     },
     schema: {
       type: 'array',
       definitions: {
         BaseStyle: {
-          enum: ['camelcase']
+          enum: ['camelcase'],
         },
         RegExp: {
           type: 'object',
@@ -29,60 +29,60 @@ module.exports = {
               additionalProperties: false,
               properties: {
                 pattern: {
-                  type: 'string'
+                  type: 'string',
                 },
                 flags: {
-                  type: 'string'
-                }
-              }
-            }
-          }
+                  type: 'string',
+                },
+              },
+            },
+          },
         },
         BaseStyleOrRegExp: {
           oneOf: [
             {$ref: '#/definitions/BaseStyle'},
-            {$ref: '#/definitions/RegExp'}
-          ]
+            {$ref: '#/definitions/RegExp'},
+          ],
         },
         StringOrRegExp: {
           oneOf: [
             {type: 'string'},
-            {$ref: '#/definitions/RegExp'}
-          ]
+            {$ref: '#/definitions/RegExp'},
+          ],
         },
         ArrayOfStringOrRegExp: {
           type: 'array',
-          items: {$ref: '#/definitions/StringOrRegExp'}
-        }
+          items: {$ref: '#/definitions/StringOrRegExp'},
+        },
       },
       properties: {
         baseStyle: {$ref: '#/definitions/BaseStyleOrRegExp'},
         ignoreCalls: {
           type: 'boolean',
-          default: true
+          default: true,
         },
         ignoreProperties: {
           type: 'boolean',
-          default: false
+          default: false,
         },
         ignoreReadProperties: {
           type: 'boolean',
-          default: true
+          default: true,
         },
         ignoredIdentifiers: {$ref: '#/definitions/ArrayOfStringOrRegExp'},
         stripPrefixUnderscores: {
           type: 'boolean',
-          default: true
+          default: true,
         },
         stripSuffixUnderscores: {
           type: 'boolean',
-          default: true
+          default: true,
         },
         allowedPrefixes: {$ref: '#/definitions/ArrayOfStringOrRegExp'},
-        allowedSuffixes: {$ref: '#/definitions/ArrayOfStringOrRegExp'}
+        allowedSuffixes: {$ref: '#/definitions/ArrayOfStringOrRegExp'},
       },
-      additionalProperties: false
-    }
+      additionalProperties: false,
+    },
   },
   create: function(context) {
     function convertArrayOfStringOrRegExp(iv) {
@@ -330,7 +330,7 @@ module.exports = {
           }
         } while (false);
         context.report(node, 'Identifier \'' + node.name + '\' does not conform.');
-      }
+      },
     };
-  }
+  },
 };

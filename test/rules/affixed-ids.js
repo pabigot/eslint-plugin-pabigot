@@ -92,7 +92,7 @@ ruleTester.run('affixed-ids', rule, {
      options: [{allowedSuffixes: [
        {regex: {pattern: '_[mu]?s'}},
        {regex: {pattern: '_[dc]?Cel'}},
-       {regex: {pattern: '_[kMG]?Hz'}}]}]}
+       {regex: {pattern: '_[kMG]?Hz'}}]}]},
   ],
   invalid: [
     /* Base style */
@@ -220,6 +220,6 @@ ruleTester.run('affixed-ids', rule, {
      errors: [{message: "Identifier 'rate_kHz' does not conform.",
                type: 'Identifier'},
               {message: "Identifier 'interval_us' does not conform.",
-               type: 'Identifier'}]}
-  ]
+               type: 'Identifier'}]},
+  ],
 });

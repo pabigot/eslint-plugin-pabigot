@@ -6,6 +6,6 @@
 
 module.exports = {
   rules: {
-    'affixed-ids': require('./rules/affixed-ids')
-  }
+    'affixed-ids': require('./rules/affixed-ids'),
+  },
 };
