@@ -1,7 +1,7 @@
 # eslint-plugin-pabigot
 
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-pabigot.svg)](https://www.npmjs.com/package/eslint-plugin-pabigot "View this project on NPM")
-[![Build Status](https://travis-ci.org/pabigot/eslint-plugin-pabigot.svg?branch=master)](https://travis-ci.org/pabigot/eslint-plugin-pabigot "Check build status on TravisCI")
+[![Build Status](https://travis-ci.com/pabigot/eslint-plugin-pabigot.svg?branch=master)](https://travis-ci.com/pabigot/eslint-plugin-pabigot "Check build status on TravisCI")
 [![Coverage Status](https://coveralls.io/repos/github/pabigot/eslint-plugin-pabigot/badge.svg?branch=master)](https://coveralls.io/github/pabigot/eslint-plugin-pabigot?branch=master "Check coverage status on Coveralls")
 
 A holder for rules and other [ESLint][] extensions that suit my needs.
