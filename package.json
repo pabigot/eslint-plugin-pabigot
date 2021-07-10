@@ -9,28 +9,28 @@
   ],
   "homepage": "https://github.com/pabigot/eslint-plugin-pabigot",
   "bugs": "https://github.com/pabigot/eslint-plugin-pabigot/issues",
-  "repository" : {
+  "repository": {
     "type": "git",
     "url": "https://github.com/pabigot/eslint-plugin-pabigot.git"
   },
   "author": "Peter A. Bigot <pab@pabigot.com>",
   "main": "index.js",
   "scripts": {
-    "coverage": "istanbul cover _mocha -- --recursive",
-    "coveralls": "istanbul cover _mocha --report lcovonly -- --recursive && cat ./coverage/lcov.info | coveralls",
+    "coverage": "nyc --reporter=lcov npm run test",
+    "coveralls": "nyc --reporter=lcovonly npm run test && cat ./coverage/lcov.info | coveralls",
     "eslint": "eslint index.js rules/ test/",
     "test": "mocha --recursive"
-   },
+  },
   "peerDependencies": {
     "eslint": ">=1.0.0"
   },
   "devDependencies": {
-    "coveralls": "^2.13.1",
-    "eslint": "^4.3.0",
-    "eslint-config-google": "^0.9.1",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.4.2"
-   },
+    "coveralls": "^3.0.0",
+    "eslint": "^7.30.0",
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^9.0.2",
+    "nyc": "^15.1.0"
+  },
   "engines": {
     "node": ">=0.12"
   },
